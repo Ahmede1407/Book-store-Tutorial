@@ -1,9 +1,18 @@
 import React from "react";
-
 import ReactDom from "react-dom";
+// CSS
+import "./index.css";
+import { books } from "./books";
+import Book from "./Book";
 
-function Greating() {
-  return <h4>Hello, this is Ahmed and this is my first Component</h4>;
+function BookList() {
+  return (
+    <section className="bookList">
+      {books.map((book) => {
+        return <Book key={book.id} {...book} />;
+      })}
+    </section>
+  );
 }
 
-ReactDom.render(<Greating />, document.getElementById("root"));
+ReactDom.render(<BookList />, document.getElementById("root"));
